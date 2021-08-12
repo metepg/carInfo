@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Simple car trip calculator">
+  <title>Autoilumittari</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <script src="./script.js" defer></script>
+</head>
+
+<body>
+  <h1 id='header'>Maltti on valttia</h1>
+
+  <main>
+    <!--
+      Options for fuel consumption
+      (When speed is 80km/h)
+      Volkswagen = 7.3L/100km
+      BMW = 8.6L/100km
+      Alfa Romeo = 9.8L/100km
+    -->
+    <div class="car-selector">
+      <div>
+        <input checked="checked" id="volkswagen" type="radio" name="car" value="3" class="inputs"
+          aria-label='Volkswagen logo' />
+        <label class="car-logo volkswagen" for="volkswagen"></label>
+        <p>6L/100km</p>
+      </div>
+      <div>
+        <input id="bmw" type="radio" name="car" value="3.5" class="inputs" aria-label='BMW logo' />
+        <label class="car-logo bmw" for="bmw"></label>
+        <p>7L/100km</p>
+      </div>
+      <div>
+        <input id="alfa" type="radio" name="car" value="4" class="inputs" aria-label='Alfa Romeo logo' />
+        <label class="car-logo alfa" for="alfa"></label>
+        <p>8L/100km</p>
+      </div>
+    </div>
+
+    <!--
+      User input fields
+      Distance range = 0 - 1000 km
+      Speed range = 0 - 250 km/h
+    -->
+    <div id='inputController'>
+      <div>
+        <label for='distance' class="infoText">MATKA</label>
+        <input type="range" value='0' min="0" max="1000" step="25" class="inputs" id='distance'>
+        <p class="inputValues" id='showDistance'>0 km</p>
+      </div>
+      <div>
+        <label for='speed1' class="infoText">NOPEUS 1</label>
+        <input type="range" value="0" min="0" max="180" step="5" class="inputs" id='speed1'
+          aria-label='Input for speed 1'>
+        <p class="inputValues" id='showSpeed1'>0 km/h</p>
+      </div>
+      <div>
+        <label for='speed2' class="infoText">NOPEUS 2</label>
+        <input type="range" value="0" min="0" max="180" step="5" class="inputs" id='speed2'
+          aria-label='Input for speed 2'>
+        <p class="inputValues" id='showSpeed2'>0 km/h</p>
+      </div>
+    </div>
+
+    <!--Show results on table-->
+    <div id='tableController'>
+      <table id="infoTable">
+        <tr>
+          <th>NOPEUS</th>
+          <th>BENSA</th>
+          <th>KESTO</th>
+        </tr>
+        <tr>
+          <td id='speedInfo1'>-</td>
+          <td id='gas1'>-</td>
+          <td id='duration1'>-</td>
+        </tr>
+        <tr>
+          <td id='speedInfo2'>-</td>
+          <td id='gas2'>-</td>
+          <td id='duration2'>-</td>
+        </tr>
+      </table>
+    </div>
+  </main>
+
+
+</body>
+
+</html>
